@@ -10,7 +10,7 @@ with recursive activity_hierarchy as (
     where a.parent_id is null 
     	and at.id = a.activitytype_id
 
-    union all
+    union
 
     select
         a.id,
@@ -23,5 +23,4 @@ with recursive activity_hierarchy as (
 		join activitytype as at on at.id = a.activitytype_id
 		join activity_hierarchy as h on a.parent_id = h.id
 )
-select *
-from activity_hierarchy order by (id);
+select * from activity_hierarchy order by (id);
